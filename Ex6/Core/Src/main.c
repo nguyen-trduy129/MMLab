@@ -91,13 +91,74 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int count =0;
+  int count =0, count2= 0;
   while (1)
   {
-	  switch (count){
-	  case 0:
-		  HAL_GPIO_WritePin(LED_0_GPIO_Port, GPIO_Pin, PinState)
-	  }
+		  switch (count2){
+		  case 0:
+			  HAL_GPIO_TogglePin(LED_0_GPIO_Port, LED_0_Pin);
+			  count2 ++;
+			  break;
+		  case 1:
+			  HAL_GPIO_TogglePin(LED_0_GPIO_Port, LED_0_Pin);
+			  HAL_GPIO_TogglePin(LED_1_GPIO_Port, LED_1_Pin);
+			  count2 ++;
+			  break;
+		  case 2:
+			  HAL_GPIO_TogglePin(LED_1_GPIO_Port, LED_1_Pin);
+			  HAL_GPIO_TogglePin(LED_2_GPIO_Port, LED_2_Pin);
+			  count2 ++;
+			  break;
+		  case 3:
+			  HAL_GPIO_TogglePin(LED_2_GPIO_Port, LED_2_Pin);
+			  HAL_GPIO_TogglePin(LED_3_GPIO_Port, LED_3_Pin);
+			  count2 ++;
+			  break;
+		  case 4:
+			  HAL_GPIO_TogglePin(LED_3_GPIO_Port, LED_3_Pin);
+			  HAL_GPIO_TogglePin(LED_4_GPIO_Port, LED_4_Pin);
+			  count2 ++;
+			  break;
+		  case 5:
+			  HAL_GPIO_TogglePin(LED_4_GPIO_Port, LED_4_Pin);
+			  HAL_GPIO_TogglePin(LED_5_GPIO_Port, LED_5_Pin);
+			  count2 ++;
+			  break;
+		  case 6:
+			  HAL_GPIO_TogglePin(LED_5_GPIO_Port, LED_5_Pin);
+			  HAL_GPIO_TogglePin(LED_6_GPIO_Port, LED_6_Pin);
+			  count2 ++;
+			  break;
+		  case 7:
+			  HAL_GPIO_TogglePin(LED_6_GPIO_Port, LED_6_Pin);
+			  HAL_GPIO_TogglePin(LED_7_GPIO_Port, LED_7_Pin);
+			  count2 ++;
+			  break;
+		  case 8:
+			  HAL_GPIO_TogglePin(LED_7_GPIO_Port, LED_7_Pin);
+			  HAL_GPIO_TogglePin(LED_8_GPIO_Port, LED_8_Pin);
+			  count2 ++;
+			  break;
+		  case 9:
+			  HAL_GPIO_TogglePin(LED_8_GPIO_Port, LED_8_Pin);
+			  HAL_GPIO_TogglePin(LED_9_GPIO_Port, LED_9_Pin);
+			  count2 ++;
+			  break;
+		  case 10:
+			  HAL_GPIO_TogglePin(LED_9_GPIO_Port, LED_9_Pin);
+			  HAL_GPIO_TogglePin(LED_10_GPIO_Port, LED_10_Pin);
+			  count2 ++;
+			  break;
+		  case 11:
+			  HAL_GPIO_TogglePin(LED_10_GPIO_Port, LED_10_Pin);
+			  HAL_GPIO_TogglePin(LED_11_GPIO_Port, LED_11_Pin);
+			  count2 =0;
+			  count++;
+			  break;
+		  default:
+			  HAL_GPIO_WritePin(LED_0_GPIO_Port, LED_0_Pin, P)
+
+		  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

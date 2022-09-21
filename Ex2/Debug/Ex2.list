@@ -128,8 +128,8 @@ int main(void)
  8000180:	080001f5 	.word	0x080001f5
  8000184:	080001bf 	.word	0x080001bf
  8000188:	080001f5 	.word	0x080001f5
- 800018c:	080001d7 	.word	0x080001d7
- 8000190:	080001f5 	.word	0x080001f5
+ 800018c:	080001f5 	.word	0x080001f5
+ 8000190:	080001d7 	.word	0x080001d7
  8000194:	080001ef 	.word	0x080001ef
   while (1)
   {
@@ -161,8 +161,8 @@ int main(void)
  80001be:	2120      	movs	r1, #32
  80001c0:	4811      	ldr	r0, [pc, #68]	; (8000208 <main+0xbc>)
  80001c2:	f000 fc19 	bl	80009f8 <HAL_GPIO_TogglePin>
-			HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
- 80001c6:	2140      	movs	r1, #64	; 0x40
+			HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
+ 80001c6:	2180      	movs	r1, #128	; 0x80
  80001c8:	480f      	ldr	r0, [pc, #60]	; (8000208 <main+0xbc>)
  80001ca:	f000 fc15 	bl	80009f8 <HAL_GPIO_TogglePin>
 			count++;
@@ -171,13 +171,13 @@ int main(void)
  80001d2:	607b      	str	r3, [r7, #4]
 			break;
  80001d4:	e012      	b.n	80001fc <main+0xb0>
-		case 7:
-			HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
- 80001d6:	2140      	movs	r1, #64	; 0x40
+		case 8:
+			HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
+ 80001d6:	2180      	movs	r1, #128	; 0x80
  80001d8:	480b      	ldr	r0, [pc, #44]	; (8000208 <main+0xbc>)
  80001da:	f000 fc0d 	bl	80009f8 <HAL_GPIO_TogglePin>
-			HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin);
- 80001de:	2180      	movs	r1, #128	; 0x80
+			HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
+ 80001de:	2140      	movs	r1, #64	; 0x40
  80001e0:	4809      	ldr	r0, [pc, #36]	; (8000208 <main+0xbc>)
  80001e2:	f000 fc09 	bl	80009f8 <HAL_GPIO_TogglePin>
 			count++;
