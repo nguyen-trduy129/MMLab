@@ -108,7 +108,7 @@ void clearNumberOnClock(int num){
 		HAL_GPIO_WritePin(LED_11_GPIO_Port, LED_11_Pin, 1);
 		break;
 	default:
-		clearAllClock();
+		//clearAllClock();
 		break;
 	}
 }
@@ -152,7 +152,7 @@ void setNumberOnClock(int num){
 		HAL_GPIO_WritePin(LED_11_GPIO_Port, LED_11_Pin, 0);
 		break;
 	default:
-		clearAllClock();
+		//clearAllClock();
 		break;
 	}
 }
@@ -194,176 +194,33 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int csixty =0;
-  int csec =0, cmin =0, chour =0;
-  while (1)
-  {
-	  clearAllClock();
-    /* USER CODE END WHILE */
-	  switch(csec){
-	  case 0:
-		  setNumberOnClock(csec);
-		  csec++;
-		  csixty ++;
-		  break;
-	  case 1:
-		  setNumberOnClock(csec);
-		  csec++;
-		  csixty ++;
-		  break;
-	  case 2:
-		  setNumberOnClock(csec);
-		  csec++;
-		  csixty ++;
-		  break;
-	  case 3:
-		  setNumberOnClock(csec);
-		  csec++;
-		  csixty ++;
-		  break;
-	  case 4:
-		  setNumberOnClock(csec);
-		  csec++;
-		  csixty ++;
-		  break;
-	  case 5:
-		  setNumberOnClock(csec);
-		  csec++;
-		  csixty ++;
-		  break;
-	  case 6:
-		  setNumberOnClock(csec);
-		  csec++;
-		  csixty ++;
-		  break;
-	  case 7:
-		  setNumberOnClock(csec);
-		  csec++;
-		  csixty ++;
-		  break;
-	  case 8:
-		  setNumberOnClock(csec);
-		  csec++;
-		  csixty ++;
-		  break;
-	  case 9:
-		  setNumberOnClock(csec);
-		  csec++;
-		  csixty ++;
-		  break;
-	  case 10:
-		  setNumberOnClock(csec);
-		  csec++;
-		  csixty ++;
-		  break;
-	  case 11:
-		  setNumberOnClock(csec);
-		  csec = 0;
-		  csixty ++;
-		  break;
-	  default:
-		  clearAllClock();
-		  break;
-	  }
+  	clearAllClock();
+  	int sec = 60, min =3600, hour =43200; //12hour
+    while (1)
+    {
+    	sec --;
+    	min --;
+    	hour --;
+    	clearAllClock();
 
-	  if (csixty != 0 && (csixty % 60 == 0)){
-		  if (cmin == 11) cmin = -1;
-		  cmin++;
-	  }
-	  if (csixty == 3600){
-		  if (chour ==  11) chour =-1;
-		  chour++;
-		  csixty =0;
-	  }
+    	setNumberOnClock(11 - sec/5);
+    	setNumberOnClock(11 - min/300);
+    	setNumberOnClock(11 - hour/3600);
 
+    	if (sec == 0){
+    		sec = 60;
+    	}
 
-	  switch (cmin){
-	  case 0:
-		  setNumberOnClock(cmin);
-		  break;
-	  case 1:
-		  setNumberOnClock(cmin);
-		  break;
-	  case 2:
-		  setNumberOnClock(cmin);
-		  break;
-	  case 3:
-		  setNumberOnClock(cmin);
-		  break;
-	  case 4:
-		  setNumberOnClock(cmin);
-		  break;
-	  case 5:
-		  setNumberOnClock(cmin);
-		  break;
-	  case 6:
-		  setNumberOnClock(cmin);
-		  break;
-	  case 7:
-		  setNumberOnClock(cmin);
-		  break;
-	  case 8:
-		  setNumberOnClock(cmin);
-		  break;
-	  case 9:
-		  setNumberOnClock(cmin);
-		  break;
-	  case 10:
-		  setNumberOnClock(cmin);
-		  break;
-	  case 11:
-		  setNumberOnClock(cmin);
-		  break;
-	  default:
-		  clearAllClock();
-		  break;
-	  }
+    	if (min == 0){
+    		min = 3600;
+    	}
 
-	  switch (chour){
-	  case 0:
-		  setNumberOnClock(chour);
-		  break;
-	  case 1:
-		  setNumberOnClock(chour);
-		  break;
-	  case 2:
-		  setNumberOnClock(chour);
-		  break;
-	  case 3:
-		  setNumberOnClock(chour);
-		  break;
-	  case 4:
-		  setNumberOnClock(chour);
-		  break;
-	  case 5:
-		  setNumberOnClock(chour);
-		  break;
-	  case 6:
-		  setNumberOnClock(chour);
-		  break;
-	  case 7:
-		  setNumberOnClock(chour);
-		  break;
-	  case 8:
-		  setNumberOnClock(chour);
-		  break;
-	  case 9:
-		  setNumberOnClock(chour);
-		  break;
-	  case 10:
-		  setNumberOnClock(chour);
-		  break;
-	  case 11:
-		  setNumberOnClock(chour);
-		  break;
-	  default:
-		  clearAllClock();
-		  break;
-	  }
+    	if (hour == 0){
+    		hour = 43200;//12hour
+    	}
 
-    /* USER CODE BEGIN 3 */
-	  HAL_Delay(100);
-  }
+  	    HAL_Delay(1000);
+    }
   /* USER CODE END 3 */
 }
 
