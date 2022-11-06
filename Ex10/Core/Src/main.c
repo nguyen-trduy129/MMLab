@@ -195,7 +195,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   	clearAllClock();
-  	int sec = 60, min =3600, hour =43200; //12hour
+  	int sec = 60, min =3600, hour =43200;
     while (1)
     {
     	sec --;
@@ -203,23 +203,23 @@ int main(void)
     	hour --;
     	clearAllClock();
 
-    	setNumberOnClock(11 - sec/5);
-    	setNumberOnClock(11 - min/300);
-    	setNumberOnClock(11 - hour/3600);
+    	setNumberOnClock(11 - sec/5); //sáng đèn chỉ giây
+    	setNumberOnClock(11 - min/300);//sáng đèn chỉ phút
+    	setNumberOnClock(11 - hour/3600);//sáng đèn chỉ giờ
 
     	if (sec == 0){
-    		sec = 60;
+    		sec = 60;//reset biến đếm giây
     	}
 
     	if (min == 0){
-    		min = 3600;
+    		min = 3600;//reset biến đếm phút
     	}
 
     	if (hour == 0){
-    		hour = 43200;//12hour
+    		hour = 43200;//reset biến đếm giờ
     	}
 
-  	    HAL_Delay(1000);
+  	    HAL_Delay(100);
     }
   /* USER CODE END 3 */
 }

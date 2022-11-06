@@ -326,7 +326,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   	clearAllClock();
  80002e6:	f7ff ff31 	bl	800014c <clearAllClock>
-  	int sec = 60, min =3600, hour =43200; //12hour
+  	int sec = 60, min =3600, hour =43200;
  80002ea:	233c      	movs	r3, #60	; 0x3c
  80002ec:	60fb      	str	r3, [r7, #12]
  80002ee:	f44f 6361 	mov.w	r3, #3600	; 0xe10
@@ -350,7 +350,7 @@ int main(void)
     	clearAllClock();
  800030c:	f7ff ff1e 	bl	800014c <clearAllClock>
 
-    	setNumberOnClock(11 - sec/5);
+    	setNumberOnClock(11 - sec/5); //sáng đèn chỉ giây
  8000310:	68fb      	ldr	r3, [r7, #12]
  8000312:	4a1b      	ldr	r2, [pc, #108]	; (8000380 <main+0xac>)
  8000314:	fb82 1203 	smull	r1, r2, r2, r3
@@ -360,7 +360,7 @@ int main(void)
  800031e:	330b      	adds	r3, #11
  8000320:	4618      	mov	r0, r3
  8000322:	f7ff ff5d 	bl	80001e0 <setNumberOnClock>
-    	setNumberOnClock(11 - min/300);
+    	setNumberOnClock(11 - min/300);//sáng đèn chỉ phút
  8000326:	68bb      	ldr	r3, [r7, #8]
  8000328:	4a16      	ldr	r2, [pc, #88]	; (8000384 <main+0xb0>)
  800032a:	fb82 1203 	smull	r1, r2, r2, r3
@@ -370,7 +370,7 @@ int main(void)
  8000334:	330b      	adds	r3, #11
  8000336:	4618      	mov	r0, r3
  8000338:	f7ff ff52 	bl	80001e0 <setNumberOnClock>
-    	setNumberOnClock(11 - hour/3600);
+    	setNumberOnClock(11 - hour/3600);//sáng đèn chỉ giờ
  800033c:	687b      	ldr	r3, [r7, #4]
  800033e:	4a12      	ldr	r2, [pc, #72]	; (8000388 <main+0xb4>)
  8000340:	fb82 1203 	smull	r1, r2, r2, r3
@@ -386,7 +386,7 @@ int main(void)
  8000354:	68fb      	ldr	r3, [r7, #12]
  8000356:	2b00      	cmp	r3, #0
  8000358:	d101      	bne.n	800035e <main+0x8a>
-    		sec = 60;
+    		sec = 60;//reset biến đếm giây
  800035a:	233c      	movs	r3, #60	; 0x3c
  800035c:	60fb      	str	r3, [r7, #12]
     	}
@@ -395,7 +395,7 @@ int main(void)
  800035e:	68bb      	ldr	r3, [r7, #8]
  8000360:	2b00      	cmp	r3, #0
  8000362:	d102      	bne.n	800036a <main+0x96>
-    		min = 3600;
+    		min = 3600;//reset biến đếm phút
  8000364:	f44f 6361 	mov.w	r3, #3600	; 0xe10
  8000368:	60bb      	str	r3, [r7, #8]
     	}
@@ -404,16 +404,17 @@ int main(void)
  800036a:	687b      	ldr	r3, [r7, #4]
  800036c:	2b00      	cmp	r3, #0
  800036e:	d102      	bne.n	8000376 <main+0xa2>
-    		hour = 43200;//12hour
+    		hour = 43200;//reset biến đếm giờ
  8000370:	f64a 03c0 	movw	r3, #43200	; 0xa8c0
  8000374:	607b      	str	r3, [r7, #4]
     	}
 
-  	    HAL_Delay(1000);
- 8000376:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
- 800037a:	f000 f965 	bl	8000648 <HAL_Delay>
+  	    HAL_Delay(100);
+ 8000376:	2064      	movs	r0, #100	; 0x64
+ 8000378:	f000 f966 	bl	8000648 <HAL_Delay>
     	sec --;
- 800037e:	e7bc      	b.n	80002fa <main+0x26>
+ 800037c:	e7bd      	b.n	80002fa <main+0x26>
+ 800037e:	bf00      	nop
  8000380:	66666667 	.word	0x66666667
  8000384:	1b4e81b5 	.word	0x1b4e81b5
  8000388:	91a2b3c5 	.word	0x91a2b3c5
