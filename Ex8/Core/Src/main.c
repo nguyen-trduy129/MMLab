@@ -70,7 +70,11 @@ void clearAllClock(){
 }
 
 void setNumberOnClock(int num){
+	clearAllClock();
 	switch(num){
+	case 0:
+		HAL_GPIO_WritePin(LED_0_GPIO_Port, LED_0_Pin, 0);
+		break;
 	case 1:
 		HAL_GPIO_WritePin(LED_1_GPIO_Port, LED_1_Pin, 0);
 		break;
@@ -103,9 +107,6 @@ void setNumberOnClock(int num){
 		break;
 	case 11:
 		HAL_GPIO_WritePin(LED_11_GPIO_Port, LED_11_Pin, 0);
-		break;
-	case 0:
-		HAL_GPIO_WritePin(LED_0_GPIO_Port, LED_0_Pin, 0);
 		break;
 	default:
 		break;
@@ -149,7 +150,6 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  clearAllClock();
   int count =0;
   while (1)
   {

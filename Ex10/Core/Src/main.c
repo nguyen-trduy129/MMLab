@@ -152,7 +152,7 @@ void setNumberOnClock(int num){
 		HAL_GPIO_WritePin(LED_11_GPIO_Port, LED_11_Pin, 0);
 		break;
 	default:
-		//clearAllClock();
+		clearAllClock();
 		break;
 	}
 }
@@ -194,18 +194,17 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  	clearAllClock();
   	int sec = 60, min =3600, hour =43200;
     while (1)
     {
     	sec --;
     	min --;
     	hour --;
-    	clearAllClock();
 
-    	setNumberOnClock(11 - sec/5); //sáng đèn chỉ giây
-    	setNumberOnClock(11 - min/300);//sáng đèn chỉ phút
-    	setNumberOnClock(11 - hour/3600);//sáng đèn chỉ giờ
+    	clearAllClock();
+    	setNumberOnClock(11 - (float)sec/5); //sáng đèn chỉ giây
+    	setNumberOnClock(11 - (float)min/300);//sáng đèn chỉ phút
+    	setNumberOnClock(11 - (float)hour/3600);//sáng đèn chỉ giờ
 
     	if (sec == 0){
     		sec = 60;//reset biến đếm giây

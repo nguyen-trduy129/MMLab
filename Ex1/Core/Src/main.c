@@ -95,18 +95,18 @@ int main(void)
   while (1)
   {
 	  switch(count){
-	  case 0:
+	  case 0: //red led on
 		  HAL_GPIO_WritePin(RED_LED_GPIO_Port, RED_LED_Pin, GPIO_PIN_RESET);
 		  HAL_GPIO_WritePin(YELLOW_LED_GPIO_Port, YELLOW_LED_Pin, GPIO_PIN_SET);
 		  count = count + 1;
 		  break;
-	  case 2:
+	  case 2: //yellow led on
 		  HAL_GPIO_WritePin (RED_LED_GPIO_Port , RED_LED_Pin ,GPIO_PIN_SET) ;
 		  HAL_GPIO_WritePin(YELLOW_LED_GPIO_Port, YELLOW_LED_Pin, GPIO_PIN_RESET);
 		  count = count + 1;
 		  break;
 	  case 3:
-	  	  count = 0;
+	  	  count = 0; //reset counter
 	  	  break;
 	  default:
 	  	  count ++;
